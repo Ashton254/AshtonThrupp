@@ -117,9 +117,10 @@
 
         <!-- Step 3 -->
         <div class="step-card">
-            <h3>Phase 3: Wiring the Sabertooth & Brake Lock Override</h3>
-            <p>Drivetrain handling is handed over directly to the Sabertooth 2x60A driver linked into the modern ELRS RC receiver infrastructure.</p>
+            <h3>Phase 3: Custom Thermal Mount & Drivetrain Integration</h3>
+            <p>To safely mount the new control hardware, a custom mechanical mounting solution was fabricated from raw metal stock to handle the high-current demands of the Sabertooth 2x60A driver.</p>
             <ul>
+                <li><strong>Heatsink Fabrication:</strong> Measured, cut, and drilled a custom structural base plate out of thick aluminium stock. This plate serves a critical dual purpose: securely anchoring the speed controller to the electronics bay while acting as a heavy-duty passive thermal heatsink to conduct operational heat away from the driver's FETs.</li>
                 <li>Route the main high-gauge motor power leads straight into the Sabertooth motor output screw terminals.</li>
                 <li><strong>Brake Bypass Logic:</strong> Because the Sabertooth features powerful integrated regenerative electronic braking, the mechanical parking brakes are redundant. The two smaller brake wires from each motor were safely wired into a constant 24V supply loop to ensure the friction locks remain completely disengaged whenever the machine is powered on.</li>
                 <li>Bridge the ELRS receiver's PWM channel signals directly into the Sabertooth input lines, mapping the stick configuration for mixed differential tank steering.</li>
@@ -128,7 +129,7 @@
 
             <!-- Image Placeholder for Phase 3 -->
             <div class="img-placeholder">
-                [📸 Image Placeholder: Sabertooth 2x60A and ELRS receiver mounted inside the electrical compartment]
+                [📸 Image Placeholder: Close-up of the custom drilled aluminium heatsink mount with the Sabertooth and ELRS receiver securely bolted in place]
             </div>
         </div>
     </div>
