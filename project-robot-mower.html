@@ -22,20 +22,20 @@
         .step-card { background: #1f2937; border-left: 4px solid #3b82f6; padding: 1.25rem; margin-bottom: 1.5rem; border-radius: 0 6px 6px 0; }
         .warning-box { background: #7f1d1d; border: 1px solid #ef4444; padding: 1rem; border-radius: 6px; margin: 1.5rem 0; }
         
-        /* Placeholder Image Styling */
-        .img-placeholder { background: #374151; border: 2px dashed #4b5563; color: #9ca3af; text-align: center; padding: 3rem 1rem; margin: 1rem 0; border-radius: 6px; font-weight: bold; font-style: italic; }
+        /* Image Project Styling */
+        .project-img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; border-radius: 6px; border: 1px solid #4b5563; background-color: #374151; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">About & Resume</a> | 
-        <a href="projects.html">Projects</a> | 
-        <a href="blog.html">Blog & Event Reports</a>
+        <a href="../index.html">About & Resume</a> | 
+        <a href="../projects.html">Projects</a> | 
+        <a href="../blog.html">Blog & Event Reports</a>
     </nav>
 
     <div class="container">
-        <a href="projects.html" class="back-link">← Back to Projects</a>
+        <a href="../projects.html" class="back-link">← Back to Projects</a>
         <h1>Heavy Utility Platform: Off-Road Robot Mower</h1>
         <p><strong>Project Class:</strong> Open-Source Hardware / Industrial Automation<br>
         <strong>Core Concept:</strong> Salvaging a heavy-duty electric wheelchair chassis and replacing the standard joystick brain with high-amperage motor controllers and a hobby RC interface for safe, remote utility tracking.</p>
@@ -89,10 +89,7 @@
                 <li><strong>Safety Protocol:</strong> Immediately disconnected and removed the heavy lead-acid batteries to fully de-energise the chassis before modifying any stock electronics or factory loom configurations.</li>
             </ul>
             
-            <!-- Image Placeholder for Phase 1 -->
-            <div class="img-placeholder">
-                [📸 Image Placeholder: Wheelchair with seat and batteries completely removed, showing the safe, empty compartment tray]
-            </div>
+            <img src="images/phase1-teardown.jpg" alt="Wheelchair chassis stripped down with seating assembly and batteries completely removed" class="project-img">
         </div>
 
         <!-- Step 2 -->
@@ -109,10 +106,7 @@
                 </li>
             </ul>
 
-            <!-- Image Placeholder for Phase 2 -->
-            <div class="img-placeholder">
-                [📸 Image Placeholder: Cleaned out compartment showing isolated heavy battery lines and labelled 4-wire motor bundles]
-            </div>
+            <img src="images/phase2-motor-pinout.jpg" alt="Interior view of the clean bay with large battery cables and labeled 4-wire motor bundles" class="project-img">
         </div>
 
         <!-- Step 3 -->
@@ -123,14 +117,22 @@
                 <li><strong>Heatsink Fabrication:</strong> Measured, cut, and drilled a custom structural base plate out of thick aluminium stock. This plate serves a critical dual purpose: securely anchoring the speed controller to the electronics bay while acting as a heavy-duty passive thermal heatsink to conduct operational heat away from the driver's FETs.</li>
                 <li>Route the main high-gauge motor power leads straight into the Sabertooth motor output screw terminals.</li>
                 <li><strong>Brake Bypass Logic:</strong> Because the Sabertooth features powerful integrated regenerative electronic braking, the mechanical parking brakes are redundant. The two smaller brake wires from each motor were safely wired into a constant 24V supply loop to ensure the friction locks remain completely disengaged whenever the machine is powered on.</li>
-                <li>Bridge the ELRS receiver's PWM channel signals directly into the Sabertooth input lines, mapping the stick configuration for mixed differential tank steering.</li>
-                <li>Ensure fail-safes are configured on the ELRS controller transmitter to immediately cut motor signals if radio link loss occurs.</li>
             </ul>
 
-            <!-- Image Placeholder for Phase 3 -->
-            <div class="img-placeholder">
-                [📸 Image Placeholder: Close-up of the custom drilled aluminium heatsink mount with the Sabertooth and ELRS receiver securely bolted in place]
-            </div>
+            <img src="images/phase3-heatsink-mount.jpg" alt="Custom aluminum base plate securing the Sabertooth speed controller inside the frame" class="project-img">
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+            <h3>Phase 4: Signal Control Link & Fail-Safe Calibration</h3>
+            <p>The final phase required establishing the radio control link using the ExpressLRS protocol and calibrating the system for maximum operational safety.</p>
+            <ul>
+                <li><strong>PWM Signal Routing:</strong> Connected the ExpressLRS receiver outputs directly to the Sabertooth signal input terminals, setting the driver dip switches to microcontroller/RC mode.</li>
+                <li><strong>Mixing Configurations:</strong> Configured the radio transmitter with custom elevon/v-tail mixing parameters to enable intuitive single-stick differential steering control.</li>
+                <li><strong>Fail-Safe Protocol:</strong> Programmed the receiver to instantly cut all PWM signal pulses if the radio frequency connection drops, engaging the Sabertooth's automatic emergency stop sequence.</li>
+            </ul>
+
+            <img src="images/phase4-receiver-failsafe.jpg" alt="Completed electronics bay showing receiver wiring and the Sabertooth 2x60A driver fully assembled" class="project-img">
         </div>
     </div>
 
