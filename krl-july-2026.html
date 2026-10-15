@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRL Fight Day July 2026 - Match Report & Lessons Learnt</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #111827; color: #f3f4f6; }
+        nav { background-color: #1f2937; padding: 1rem; text-align: center; border-bottom: 2px solid #374151; }
+        nav a { color: #3b82f6; text-decoration: none; margin: 0 1rem; font-weight: bold; }
+        nav a:hover { color: #60a5fa; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; }
+        h1, h2, h3 { color: #ffffff; }
+        .back-link { display: inline-block; margin-bottom: 1.5rem; color: #3b82f6; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .section { background: #1f2937; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border: 1px solid #374151; }
+        .tech-specs { border-left: 4px solid #3b82f6; }
+        .failures { border-left: 4px solid #ef4444; }
+        .lessons { border-left: 4px solid #10b981; }
+        ul { padding-left: 1.2rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight { color: #60a5fa; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html">About & Resume</a> | 
+        <a href="../projects.html">Projects</a> | 
+        <a href="../blog.html">Blog & Event Reports</a>
+    </nav>
+
+    <div class="container">
+        <a href="../blog.html" class="back-link">← Back to Blog & Events</a>
+        
+        <h1>KRL Fight Day July 2026</h1>
+        <p class="highlight">Event Date: July 2026 | Status: Competitive Debut</p>
+
+        <div class="section tech-specs">
+            <h2>Executive Summary & Robot Specs</h2>
+            <p>This event marked the highly anticipated competitive combat debut for the latest iteration of <span class="highlight">Baba Yaga</span>. Going into the arena, our focus was testing the integration of the new custom armor layout and weapon mechanics. While the build showed offensive promise, the tournament served as an aggressive testing ground that exposed critical flaws in our powertrain.</p>
+        </div>
+
+        <div class="section failures">
+            <h2>Critical Breakdowns & Limit Testing</h2>
+            <h3>1. Drive System Thermal Limits</h3>
+            <p>Within the first 45 seconds of heavy maneuvering during Match 1, the drive motors experienced extreme heat dissipation issues. The lack of active ventilation or specialized heat-sinking within the compact chassis caused the motors to rapidly hit thermal throttling limits, severely undercutting our agility.</p>
+            
+            <h3>2. Electrical Configuration Vulnerabilities</h3>
+            <p>During a high-impact collision in Match 2, a sudden voltage sag from the main battery link caused a transient reset on the internal microcontrollers. This brief loss of signal loop left the robot unresponsive for three crucial seconds, leaving us exposed to incoming kinetic strikes.</p>
+        </div>
+
+        <div class="section lessons">
+            <h2>Lessons Learnt & Action Items</h2>
+            <ul>
+                <li><strong>Overhaul Powertrain Thermals:</strong> Redesign motor mounts to act as structural heat sinks and integrate airflow channels into the baseplate.</li>
+                <li><strong>Isolate Electronics Logics:</strong> Add a dedicated opto-isolated backup regulator for the control board to prevent full system resets during peak battery current draws.</li>
+                <li><strong>Secure Connectors:</strong> Replace friction-fit links with positive-locking connectors to better survive severe mechanical shock.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
