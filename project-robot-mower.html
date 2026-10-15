@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Off-Road Robot Mower Instructions</title>
+    <title>Off-Road Robot Mower Guide</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #111827; color: #f3f4f6; }
         nav { background-color: #1f2937; padding: 1rem; text-align: center; border-bottom: 2px solid #374151; }
         nav a { color: #3b82f6; text-decoration: none; margin: 0 1rem; font-weight: bold; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; }
+        nav a:hover { color: #60a5fa; }
+        .container { max-width: 850px; margin: 2rem auto; padding: 0 1.5rem; }
         h1, h2, h3 { color: #ffffff; }
+        h2 { border-bottom: 2px solid #374151; padding-bottom: 0.5rem; margin-top: 2rem; }
         .back-link { display: inline-block; margin-bottom: 1.5rem; color: #3b82f6; text-decoration: none; font-weight: bold; }
-        .instruction-box { background: #1f2937; border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 4px; margin-top: 1.5rem; }
+        .back-link:hover { text-decoration: underline; }
+        
+        /* Technical layout styles */
+        .specs-table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: #1f2937; border-radius: 6px; overflow: hidden; }
+        .specs-table th, .specs-table td { padding: 0.75rem; text-align: left; border: 1px solid #374151; }
+        .specs-table th { background-color: #1e3a8a; color: white; }
+        .step-card { background: #1f2937; border-left: 4px solid #3b82f6; padding: 1.25rem; margin-bottom: 1.5rem; border-radius: 0 6px 6px 0; }
+        .warning-box { background: #7f1d1d; border: 1px solid #ef4444; padding: 1rem; border-radius: 6px; margin: 1.5rem 0; }
+        
+        /* Placeholder Image Styling */
+        .img-placeholder { background: #374151; border: 2px dashed #4b5563; color: #9ca3af; text-align: center; padding: 3rem 1rem; margin: 1rem 0; border-radius: 6px; font-weight: bold; font-style: italic; }
     </style>
 </head>
 <body>
@@ -24,12 +36,100 @@
 
     <div class="container">
         <a href="projects.html" class="back-link">← Back to Projects</a>
-        <h1>Off-Road Robot Mower Guide</h1>
-        <p>An open-source hardware project converting standard heavy electric wheelchair motors and frames into a robust all-terrain platform.</p>
+        <h1>Heavy Utility Platform: Off-Road Robot Mower</h1>
+        <p><strong>Project Class:</strong> Open-Source Hardware / Industrial Automation<br>
+        <strong>Core Concept:</strong> Salvaging a heavy-duty electric wheelchair chassis and replacing the standard joystick brain with high-amperage motor controllers and a hobby RC interface for safe, remote utility tracking.</p>
 
-        <div class="instruction-box">
-            <h3>🛠️ Open-Source Build Documentation</h3>
-            <p>Detailed step-by-step instructions, wiring schematics, and structural configurations will be posted here as the platform is completed, allowing anyone to replicate or adapt the design.</p>
+        <h2>📊 System Specifications</h2>
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>Component Class</th>
+                    <th>Hardware Choice / Type</th>
+                    <th>Purpose / Technical Target</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Chassis & Drive</strong></td>
+                    <td>Electric Wheelchair Frame</td>
+                    <td>High torque differential steering, robust terrain handling</td>
+                </tr>
+                <tr>
+                    <td><strong>Motor Driver</strong></td>
+                    <td>Sabertooth Dual 60A Motor Driver</td>
+                    <td>Handling immense current spikes and regenerative braking safely</td>
+                </tr>
+                <tr>
+                    <td><strong>Control Link</strong></td>
+                    <td>Standard ExpressLRS (ELRS) TX/RX</td>
+                    <td>Ultra-reliable, long-range fail-safe radio frequency transmission</td>
+                </tr>
+                <tr>
+                    <td><strong>Power Bus</strong></td>
+                    <td>Dual 12V Batteries (24V Native)</td>
+                    <td>Direct raw high-capacity power distribution to drivetrain</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <strong>⚠️ High Torque / High Voltage Safety Notice:</strong> Wheelchair motors carry immense rotational torque capable of causing structural or physical damage. Always perform initial drivetrain bench tests with the drive wheels completely elevated off the ground.
+        </div>
+
+        <h2>🛠️ Build Log & Assembly Instructions</h2>
+
+        <!-- Step 1 -->
+        <div class="step-card">
+            <h3>Phase 1: Chassis Teardown & Safe Electrical Isolation</h3>
+            <p>The first structural phase required stripping away all user-focused commercial elements of the source wheelchair to reduce overall profile scale and establish a safe workspace environment.</p>
+            <ul>
+                <li>Unbolted and completely removed the main heavy seating rig.</li>
+                <li>Gained direct line-of-sight access to the lower base chassis housing the factory electrical system, primary fuse links, and battery compartment.</li>
+                <li><strong>Safety Protocol:</strong> Immediately disconnected and removed the heavy lead-acid batteries to fully de-energise the chassis before modifying any stock electronics or factory loom configurations.</li>
+            </ul>
+            
+            <!-- Image Placeholder for Phase 1 -->
+            <div class="img-placeholder">
+                [📸 Image Placeholder: Wheelchair with seat and batteries completely removed, showing the safe, empty compartment tray]
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+            <h3>Phase 2: OEM Electronics Stripping & Motor Pinout Analysis</h3>
+            <p>With the platform isolated safely, the entire stock proprietary wiring harness and commercial joystick processing units were entirely stripped out of the core compartment tray.</p>
+            <ul>
+                <li>Removed all factory motor controllers and proprietary breakout boxes, leaving only the clean, raw battery terminal leads and direct motor lines.</li>
+                <li><strong>Technical Reverse-Engineering:</strong> Isolated and identified the 4-wire pinout coming from each independent geared drive assembly:
+                    <ul>
+                        <li><strong>2x Large High-Gauge Wires:</strong> The main continuous DC current delivery lines to supply voltage and control rotational drive parameters.</li>
+                        <li><strong>2x Small Low-Gauge Wires:</strong> Dedicated electromagnetic parking brake terminals. These require a constant auxiliary 24V supply to fully disengage the mechanical friction lock rings and allow free motor armature rotation.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Image Placeholder for Phase 2 -->
+            <div class="img-placeholder">
+                [📸 Image Placeholder: Cleaned out compartment showing isolated heavy battery lines and labelled 4-wire motor bundles]
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+            <h3>Phase 3: Wiring the Sabertooth & Brake Lock Override</h3>
+            <p>Drivetrain handling is handed over directly to the Sabertooth 2x60A driver linked into the modern ELRS RC receiver infrastructure.</p>
+            <ul>
+                <li>Route the main high-gauge motor power leads straight into the Sabertooth motor output screw terminals.</li>
+                <li><strong>Brake Bypass Logic:</strong> Because the Sabertooth features powerful integrated regenerative electronic braking, the mechanical parking brakes are redundant. The two smaller brake wires from each motor were safely wired into a constant 24V supply loop to ensure the friction locks remain completely disengaged whenever the machine is powered on.</li>
+                <li>Bridge the ELRS receiver's PWM channel signals directly into the Sabertooth input lines, mapping the stick configuration for mixed differential tank steering.</li>
+                <li>Ensure fail-safes are configured on the ELRS controller transmitter to immediately cut motor signals if radio link loss occurs.</li>
+            </ul>
+
+            <!-- Image Placeholder for Phase 3 -->
+            <div class="img-placeholder">
+                [📸 Image Placeholder: Sabertooth 2x60A and ELRS receiver mounted inside the electrical compartment]
+            </div>
         </div>
     </div>
 
